@@ -40,12 +40,12 @@
 	width: 55%;
 }
 .brand-img-upload .button {
-margin: 6px 0;	
+	margin: 6px 0;	
 }
 .education-img-field-preview {
 	margin-top: 15px;
 }
-.preview-img {
+.brand-img-upload img {
 	max-width: 100%;
 	height: auto;
 }
