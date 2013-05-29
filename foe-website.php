@@ -372,7 +372,19 @@ Class UBC_Education_Theme_Options {
 				echo '';
 			}
 		}
-		}	
+		}
+		
+	 /**
+     * output_back_to_top
+     * Adds the back to top below content
+     * @access public
+     * @return string
+     */         
+
+	function output_back_to_top(){
+		echo '<div id="section-6" class="widget section-widget widget-section-widget content-back-top"><div class="widget-wrap widget-inside"><hr />
+			<div class="row-fluid ubc7-back-to-top clearfix"><div class="span4"><a href="#" title="Back to top">Back to top <span class="ubc7-arrow up-arrow grey"></span></a></div></div></div> <!-- Back to Top End -->';
+            }
 		
       /**
      * wp_head
