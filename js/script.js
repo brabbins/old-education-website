@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
     });
         
     jQuery("#education-gradient-colour").wpColorPicker({
-        palettes: ['#5F62A9', '#98D5CA', '#D6DF30', '#FFDD00', '#E11553', '#EE523C']
+        palettes: ['#002145', '#2F5D7C', '#5E869F', '#98B2C3', '#C3D0DB']
     });
     
     jQuery("#education-hover-colour").wpColorPicker({

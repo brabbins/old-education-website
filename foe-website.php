@@ -174,6 +174,7 @@ Class UBC_Education_Theme_Options {
         <div class="explanation"><a href="#" class="explanation-help">Info</a>
           <div>These colours are specific to each unit.</div>
         </div>
+        
         <div id="education-unit-colour-box">
 <label><b>Unit/Website Main Colour:</b><br /></label>
           <small>Read more about <a href="http://clf.educ.ubc.ca/design-style-guide/clf-specifications/#contrast" target="_blank">colour contrast</a> and <a href="http://clf.educ.ubc.ca/design-style-guide/clf-specifications/#contrast" target="_blank">web accesibility</a>.</small>
@@ -198,6 +199,20 @@ Class UBC_Education_Theme_Options {
      * @return void
      */      
     function foe_brand_options(){ ?>
+    
+        <div class="explanation"><a href="#" class="explanation-help">Info</a>
+          <div><p><strong>This section is used to upload the department or units banner and chevron.</strong></p>
+          <p>The chevron needs two files:</p>
+          <ol>
+            <li>one image for regular screens and devices</li>
+            <li>and one image for high resolution screens such as retina displays</li>
+          </ol>
+          
+          <p>Find dimensions and templates for the <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#chevron" target="_blank">chevron</a> and <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#banner" target="_blank">banner</a>.</p>
+          
+          </div>
+        </div>
+    
     <label><b>Unit/Website Banner and Chevron Options:</b><br /></label>
           <small>Find dimensions and templates for the <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#chevron" target="_blank">chevron</a> and <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#banner" target="_blank">banner</a>.</small>
       
@@ -284,6 +299,7 @@ Class UBC_Education_Theme_Options {
                 'education-main-colour'			=> '#002145',
                 'education-gradient-colour'		=> '#2F5D7C',
                 'education-hover-colour'		=> '#002145',
+				'education-enable-banner' 		=> 'true',
 				'foe-banner-image'    			=> '',
 				'foe-chevron-image-regular'    	=>  plugins_url('education-website').'/img/faculty-chevron.png',
 				'foe-chevron-image-retina'    	=> plugins_url('education-website').'/img/faculty-chevron-@2x.png',
@@ -315,6 +331,7 @@ Class UBC_Education_Theme_Options {
             $starter['education-hover-colour'] = UBC_Collab_Theme_Options::validate_text($input['education-hover-colour'], $starter['education-hover-colour'] );
 			
 	    // Validate Image URLs for Education Branding
+			$starter['education-enable-banner'] = (bool)$input['education-enable-banner'];
 			$starter['foe-banner-image'] = UBC_Collab_Theme_Options::validate_text($input['foe-banner-image'], $starter['foe-banner-image'] );
 			$starter['foe-chevron-image-regular'] = UBC_Collab_Theme_Options::validate_text($input['foe-chevron-image-regular'], $starter['foe-chevron-image-regular'] );
 			$starter['foe-chevron-image-retina'] = UBC_Collab_Theme_Options::validate_text($input['foe-chevron-image-retina'], $starter['foe-chevron-image-retina'] );
@@ -331,9 +348,6 @@ Class UBC_Education_Theme_Options {
      */         
 		function theme_styles()  
 			{ 
-			  // Register the style like this for a theme:  
-			  // (First the unique name for the style (custom-style) then the src, 
-			  // then dependencies and ver no. and media type)
 			  wp_register_style( 'foe-clf', 
 				plugins_url('education-website') . '/css/global.css', 
 				array(), 
