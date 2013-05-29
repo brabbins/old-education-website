@@ -7,7 +7,7 @@
 jQuery(document).ready(function() {
     
     jQuery("#education-main-colour").wpColorPicker({
-        palettes: ['#5F62A9', '#98D5CA', '#D6DF30', '#FFDD00', '#E11553', '#EE523C']
+        palettes: ['#002145', '#2F5D7C', '#5E869F', '#98B2C3', '#C3D0DB']
     });
         
     jQuery("#education-gradient-colour").wpColorPicker({
@@ -64,6 +64,20 @@ jQuery(document).ready(function() {
         var hex =  "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
         return hex;
     }
+	
+	if(jQuery('#ubc-collab-theme-options-education-enable-banner').attr('checked')){
+        jQuery(".banner-enable").show();
+    } else{
+        jQuery(".banner-enable").hide();
+    }
+    jQuery('#ubc-collab-theme-options-education-enable-banner').change( function(){
+		
+		if( jQuery(this).prop("checked") ){
+			jQuery(".banner-enable").slideDown();
+		} else {
+			jQuery(".banner-enable").slideUp();
+		}
+});
     
 //    if(jQuery('#ubc-collab-theme-options-arts-enable-why-unit').attr('checked')){
 //        jQuery(".arts-why-inputs").show();
