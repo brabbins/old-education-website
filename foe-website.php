@@ -88,7 +88,7 @@ Class UBC_Education_Theme_Options {
         if( !is_admin() ):
         	wp_register_script( 'ubc-collab-education', plugins_url('education-website').'/js/education-website.js', array( 'jquery' ), '0.1', true );
 			wp_register_script( 'foe-upload', plugins_url('education-website') .'/js/foe-upload.js', array('jquery','media-upload','thickbox') );
-        	wp_enqueue_style('ubc-collab-education', plugins_url('education-website').'/css/education-website.css');
+        	//wp_enqueue_style('ubc-collab-education', plugins_url('education-website').'/css/education-website.css');
         endif;
 	
 	}
@@ -171,26 +171,28 @@ Class UBC_Education_Theme_Options {
      */   
     function foe_colour_options(){ ?>
 
-        <div class="explanation"><a href="#" class="explanation-help">Info</a>
-          <div>These colours are specific to each unit.</div>
-        </div>
-        
-        <div id="education-unit-colour-box">
-<label><b>Unit/Website Main Colour:</b><br /></label>
-          <small>Read more about <a href="http://clf.educ.ubc.ca/design-style-guide/clf-specifications/#contrast" target="_blank">colour contrast</a> and <a href="http://clf.educ.ubc.ca/design-style-guide/clf-specifications/#contrast" target="_blank">web accesibility</a>.</small>
-          <div class="education-colour-item"><br /><span>Main colour </span>
-            <?php  UBC_Collab_Theme_Options::text( 'education-main-colour' ); ?>
-          </div>
-          <br/>
-          <div class="education-colour-item"><span>Secondary colour: </span>
-            <?php  UBC_Collab_Theme_Options::text( 'education-gradient-colour' ); ?>
-          </div>
-          <br/>
+<div class="explanation"><a href="#" class="explanation-help">Info</a>
+  <div>These colours are specific to each unit.</div>
+</div>
+<div id="education-unit-colour-box">
+<label><b>Unit/Website Main Colour:</b><br />
+</label>
+<small>Read more about <a href="http://clf.educ.ubc.ca/design-style-guide/clf-specifications/#contrast" target="_blank">colour contrast</a> and <a href="http://clf.educ.ubc.ca/design-style-guide/clf-specifications/#contrast" target="_blank">web accesibility</a>.</small>
+<div class="education-colour-item"><br />
+  <span>Main colour </span>
+  <?php  UBC_Collab_Theme_Options::text( 'education-main-colour' ); ?>
+</div>
+<br/>
+<div class="education-colour-item"><span>Secondary colour: </span>
+  <?php  UBC_Collab_Theme_Options::text( 'education-gradient-colour' ); ?>
+</div>
+<br/>
 <!--          <div class="education-colour-item"><span>(C) Hover colour: </span>
             <?php  //UBC_Collab_Theme_Options::text( 'education-hover-colour' ); ?>
           </div>
           <br/>
--->        <?php
+-->
+<?php
             }
     /**
      * foe_brand_options.
@@ -199,48 +201,39 @@ Class UBC_Education_Theme_Options {
      * @return void
      */      
     function foe_brand_options(){ ?>
-    
-        <div class="explanation"><a href="#" class="explanation-help">Info</a>
-          <div><p><strong>This section is used to upload the department or units banner and chevron.</strong></p>
-          <p>The chevron needs two files:</p>
-          <ol>
-            <li>one image for regular screens and devices</li>
-            <li>and one image for high resolution screens such as retina displays</li>
-          </ol>
-          
-          <p>Find dimensions and templates for the <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#chevron" target="_blank">chevron</a> and <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#banner" target="_blank">banner</a>.</p>
-          
-          </div>
-        </div>
-    
-    <label><b>Unit/Website Banner and Chevron Options:</b><br /></label>
-          <small>Find dimensions and templates for the <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#chevron" target="_blank">chevron</a> and <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#banner" target="_blank">banner</a>.</small>
-      
-    <form id="education-form" action="themes.php" method="post" enctype="multipart/form-data"> 
-    
-    <div class="brand-img-upload"><br /><?php UBC_Collab_Theme_Options::checkbox( 'education-enable-banner', 1, 'Enable Banner image upload?' ); ?></div>
-    
-        <div class="brand-img-upload banner-enable"><span><br /><strong>Banner Image:</strong></span>
-         <?php  UBC_Collab_Theme_Options::text( 'foe-banner-image' ); ?>
-         <input id="upload_banner_button" type="button" class="button" value="Upload">
-          <img src="<?php echo UBC_Collab_Theme_Options::get( 'foe-banner-image' ); ?>" />
-
-         </div>
-          
-        <div class="brand-img-upload"><span><strong>Regular Chevron Image:</strong></span>
-         <?php  UBC_Collab_Theme_Options::text( 'foe-chevron-image-regular' ); ?>
-         <input id="upload_regular_button" type="button" class="button" value="Upload">
-          <img src="<?php echo UBC_Collab_Theme_Options::get( 'foe-chevron-image-regular' ); ?>" />
-         </div>
-          
-          
-        <div class="brand-img-upload"><span><strong>Retina Chevron Image:</strong></span>
-         <?php  UBC_Collab_Theme_Options::text( 'foe-chevron-image-retina' ); ?>
-          <input id="upload_retina_button" type="button" class="button" value="Upload">
-          <img src="<?php echo UBC_Collab_Theme_Options::get( 'foe-chevron-image-retina' ); ?>" />
-          </div>
-          </form>
-	<?php 
+<div class="explanation"><a href="#" class="explanation-help">Info</a>
+  <div>
+    <p><strong>This section is used to upload the department or units banner and chevron.</strong></p>
+    <p>The chevron needs two files:</p>
+    <ol>
+      <li>one image for regular screens and devices</li>
+      <li>and one image for high resolution screens such as retina displays</li>
+    </ol>
+    <p>Find dimensions and templates for the <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#chevron" target="_blank">chevron</a> and <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#banner" target="_blank">banner</a>.</p>
+  </div>
+</div>
+<label><b>Unit/Website Banner and Chevron Options:</b><br />
+</label>
+<small>Find dimensions and templates for the <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#chevron" target="_blank">chevron</a> and <a href="http://clf.educ.ubc.ca/design-style-guide/dimensions/#banner" target="_blank">banner</a>.</small>
+<form id="education-form" action="themes.php" method="post" enctype="multipart/form-data">
+  <div class="brand-img-upload"><br />
+    <?php UBC_Collab_Theme_Options::checkbox( 'education-enable-banner', 1, 'Enable Banner image upload?' ); ?>
+  </div>
+  <div class="brand-img-upload banner-enable"><span><br />
+    <strong>Banner Image:</strong></span>
+    <?php  UBC_Collab_Theme_Options::text( 'foe-banner-image' ); ?>
+    <input id="upload_banner_button" type="button" class="button" value="Upload">
+    <img src="<?php echo UBC_Collab_Theme_Options::get( 'foe-banner-image' ); ?>" /> </div>
+  <div class="brand-img-upload"><span><strong>Regular Chevron Image:</strong></span>
+    <?php  UBC_Collab_Theme_Options::text( 'foe-chevron-image-regular' ); ?>
+    <input id="upload_regular_button" type="button" class="button" value="Upload">
+    <img src="<?php echo UBC_Collab_Theme_Options::get( 'foe-chevron-image-regular' ); ?>" /> </div>
+  <div class="brand-img-upload"><span><strong>Retina Chevron Image:</strong></span>
+    <?php  UBC_Collab_Theme_Options::text( 'foe-chevron-image-retina' ); ?>
+    <input id="upload_retina_button" type="button" class="button" value="Upload">
+    <img src="<?php echo UBC_Collab_Theme_Options::get( 'foe-chevron-image-retina' ); ?>" /> </div>
+</form>
+<?php 
 	} 
 /**
      * foe_hardcoded_options.
@@ -249,32 +242,29 @@ Class UBC_Education_Theme_Options {
      * @return void
      */      
     function foe_hardcoded_options(){ ?>
-            <div class="explanation"><a href="#" class="explanation-help">Info</a>
-
-                    <div>The following are the description of hardcoded items and resources for a Faculty of Education Theme.</div>
-            </div>
-            <div id="education-hardcoded-box">
-                <label><b>The following features are hardcoded:</b></label>
-                <ol>
-                    <li>Faculty of Education Style</li>
-                    <li>Background Texture</li>
-                    <li>Department/ Unit Header</li>
-                    <li>Circled <strong>Featured Images</strong> for pages. <a href="http://clf.educ.ubc.ca/features/featured-images/" target="_blank">Find out more.</a></li>
-                    <li>Back to Top link</li>
-                </ol>
-            </div>
-            <div id="education-resources">
-                <label><b>Faculty of Education Resources:</b></label>
-                <ol>
-                    <li><a href="http://clf.educ.ubc.ca/" target="_blank">Faculty of Education CLF</a></li>
-                    <li><a href="http://wiki.ubc.ca/Documentation:UBC_Content_Management_System" target="_blank">WordPress/ CMS Wiki site</a></li>
-                    <li><a href="http://clf.ubc.ca" target="_blank">UBC CLF</a></li>
-                </ol>
-            </div>
-
-
-
+<div class="explanation"><a href="#" class="explanation-help">Info</a>
+  <div>The following are the description of hardcoded items and resources for a Faculty of Education Theme.</div>
+</div>
+<div id="education-hardcoded-box">
+  <label><b>The following features are hardcoded:</b></label>
+  <ol>
+    <li>Faculty of Education Style</li>
+    <li>Background Texture</li>
+    <li>Department/ Unit Header</li>
+    <li>Circled <strong>Featured Images</strong> for pages. <a href="http://clf.educ.ubc.ca/features/featured-images/" target="_blank">Find out more.</a></li>
+    <li>Back to Top link</li>
+  </ol>
+</div>
+<div id="education-resources">
+  <label><b>Faculty of Education Resources:</b></label>
+  <ol>
+    <li><a href="http://clf.educ.ubc.ca/" target="_blank">Faculty of Education CLF</a></li>
+    <li><a href="http://wiki.ubc.ca/Documentation:UBC_Content_Management_System" target="_blank">WordPress/ CMS Wiki site</a></li>
+    <li><a href="http://clf.ubc.ca" target="_blank">UBC CLF</a></li>
+  </ol>
+</div>
 <?php	
+
     UBC_Education_Theme_Options::education_defaults();
     }    
     
@@ -381,12 +371,12 @@ Class UBC_Education_Theme_Options {
 		if ( is_page() ) {
 			if (has_post_thumbnail()) {
 			  $image_url = wp_get_attachment_image_src(get_post_thumbnail_id(),'full', true);
-			  echo '<img class="pull-right contrast img-circle visible-desktop visible-tablet img-polaroid alignright featured-images-pages" src="' . $image_url[0] .'" title="' . the_title_attribute('echo=0') . '" alt="' . the_title_attribute('echo=0') . '" />';
+				  echo '<img class="pull-right visible-desktop visible-tablet alignright featured-images-pages" src="' . $image_url[0] .'" title="' . the_title_attribute('echo=0') . '" alt="' . the_title_attribute('echo=0') . '" />';
 			} else {
 				echo '';
 			}
 		}
-		}
+	}
 		
 	 /**
      * output_back_to_top
@@ -396,8 +386,16 @@ Class UBC_Education_Theme_Options {
      */         
 
 	function output_back_to_top(){
-		echo '<div id="section-6" class="widget section-widget widget-section-widget content-back-top"><div class="widget-wrap widget-inside"><hr />
-			<div class="row-fluid ubc7-back-to-top clearfix"><div class="span4"><a href="#" title="Back to top">Back to top <span class="ubc7-arrow up-arrow grey"></span></a></div></div></div> <!-- Back to Top End -->';
+				echo '<div id="section-6" class="widget section-widget widget-section-widget content-back-top">
+		  <div class="widget-wrap widget-inside">
+			<hr />
+			<div class="row-fluid ubc7-back-to-top clearfix">
+			  <div class="span4"><a href="#" title="Back to top">Back to top <span class="ubc7-arrow up-arrow grey"></span></a></div>
+			</div>
+		  </div>
+		</div>
+		<!-- Back to Top End --> 
+		';
             }
 		
       /**
@@ -407,7 +405,7 @@ Class UBC_Education_Theme_Options {
      * @return void
      */        
         function wp_head(){ ?>
-        <style type="text/css" media="screen">
+<style type="text/css" media="screen">
 			#container, .content, #frontpage-siderbar {
 					background: url(<?php echo plugins_url('education-website')?>/img/debut_light.png) repeat !important;
 				}
@@ -478,3 +476,4 @@ Class UBC_Education_Theme_Options {
 
 UBC_Education_Theme_Options::init();
 //var_dump( get_option( 'ubc-collab-theme-options' ));
+
